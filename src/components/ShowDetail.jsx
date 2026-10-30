@@ -1,8 +1,21 @@
+/* 
+  Name: Mu'aaz Khan
+  Date: 10.29.2026
+  CSC 372-01
+
+  This is the ShowDetail.jsx page for assignment 5. It is responsible for rendering the details of a single TV show.
+*/
+
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import CastList from "./CastList.jsx";
 import { fetchJson, showUrl, castUrl, stripHtml, formatDate, formatDateTime, formatGenres, formatRating, getNetwork, NA } from "../utils.js";
 
+/**
+ * Renders the details of a single TV show based on the provided ID from the URL parameters.
+ * It fetches the show details and cast information from the TVmaze API and displays them.
+ * @returns {JSX.Element} - The rendered ShowDetail component.
+ */
 export default function ShowDetail() {
   const { id } = useParams();
   const [show, setShow] = useState(null);
@@ -45,7 +58,7 @@ export default function ShowDetail() {
   }
 
   return (
-    <article className="detail">
+    <article>
       {back}
       <h1>{show.name}</h1>
       <div className="detail-body">
@@ -68,7 +81,7 @@ export default function ShowDetail() {
         </div>
       </div>
       <h2>Cast</h2>
-      <CastList cast={cast} status={castStatus} error={castError} limit={15} showCharacters />
+      <CastList cast={cast} status={castStatus} error={castError} limit={15} showCharacters/>
     </article>
   );
 }

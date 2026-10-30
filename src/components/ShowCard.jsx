@@ -1,8 +1,23 @@
+/* 
+  Name: Mu'aaz Khan
+  Date: 10.29.2026
+  CSC 372-01
+
+  This is the ShowCard.jsx page for assignment 5. It is responsible for rendering a single TV show card.
+*/
+
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import CastList from "./CastList.jsx";
 import { fetchJson, castUrl, stripHtml, truncate, formatDate, formatDateTime, formatGenres, formatRating } from "../utils.js";
 
+/**
+ * Renders a single TV show card with its details and main cast.
+ * It fetches the cast information from the TVmaze API and displays it.
+ * @param {Object} props - The component props.
+ * @param {Object} props.show - The show object containing its details.
+ * @returns {JSX.Element} - The rendered ShowCard component.
+ */
 export default function ShowCard({ show }) {
   const [cast, setCast] = useState([]);
   const [castStatus, setCastStatus] = useState("loading");

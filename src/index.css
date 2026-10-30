@@ -1,3 +1,11 @@
+/*
+  Name: Mu'aaz Khan
+  Date: 10.29.2026
+  CSC 372-01
+
+  This is the index.css page for assignment 5. It contains the styling for the entire application.
+*/
+
 * {
   box-sizing: border-box;
 }
@@ -13,7 +21,7 @@
 
 body {
   margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: system-ui, sans-serif;
   background: var(--bg);
   color: var(--ink);
   line-height: 1.5;
@@ -47,7 +55,6 @@ dt {
 dd {
   margin: 0;
 }
-
 
 .card h2 {
   margin: .4rem 0 0;
@@ -144,7 +151,7 @@ dd {
   border-radius: 4px;
 }
 
-.subtle {
+.subtle, .summary {
   color: var(--subtle);
 }
 
@@ -187,11 +194,6 @@ dd {
   border-bottom: 1px solid var(--line);
   margin-bottom: 1.5rem;
 }
-
-.summary {
-  color: var(--subtle);
-}
-
 
 @media (max-width: 700px) {
   .detail-body {

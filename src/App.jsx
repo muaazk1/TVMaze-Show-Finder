@@ -1,3 +1,12 @@
+/* 
+  Name: Mu'aaz Khan
+  Date: 10.29.2026
+  CSC 372-01
+
+  This is the App.jsx page for assignment 5. It is responsible for rendering the main application and managing the state of the search term, input, shows, status, and error. 
+  It also handles the search form submission and fetches data from the TVmaze API.
+*/
+
 import { useEffect, useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import SearchForm from "./components/SearchForm.jsx";
@@ -7,13 +16,18 @@ import ShowDetail from "./components/ShowDetail.jsx";
 import Attribution from "./components/Attribution.jsx";
 import { fetchJson, searchUrl } from "./utils.js";
 
-const DEFAULT_TERM = "office";
+const DEFAULT_TERM = "Breaking Bad";
 
+/**
+ * The main application component that manages the state of the search term, input, shows, status, and error.
+ * It also handles the search form submission and fetches data from the TVmaze API.
+ * @returns {JSX.Element} - The rendered App component.
+ */
 export default function App() {
-  const [input, setInput] = useState(DEFAULT_TERM);      
-  const [term, setTerm] = useState(DEFAULT_TERM);      
+  const [input, setInput] = useState(DEFAULT_TERM);
+  const [term, setTerm] = useState(DEFAULT_TERM);
   const [shows, setShows] = useState([]);
-  const [status, setStatus] = useState("loading"); 
+  const [status, setStatus] = useState("loading");
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -37,7 +51,10 @@ export default function App() {
       setStatus("invalid");
       return;
     }
-    if (trimmed === term && status === "success") return; 
+    if (trimmed === term) {
+      if (status === "invalid") setStatus("success");
+      return;
+    }
     setTerm(trimmed);
   }
 
